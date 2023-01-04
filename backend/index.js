@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import path from 'path'
-
+import { fileURLToPath } from 'url';
 import postRoutes from './routes/posts.js'
 
 const app = express()
@@ -16,6 +16,9 @@ app.use(express.static('public'))
 // app.use(cors())
 
 
+const filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(filename);
+
 
 // const CONNECTION_URL = 'mongodb+srv://nirProjects:nirProjects123@cluster0.bpmfyqy.mongodb.net/?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000
@@ -24,6 +27,9 @@ console.log('NODE_ENV', process.env.NODE_ENV);
 console.log('process.env.PORT', process.env.PORT);
 
 if (process.env.NODE_ENV === 'production') {
+    console.log('filename', filename);
+    console.log('__dirname', __dirname);
+
     app.use(express.static(path.resolve(__dirname, 'public')))
     // app.use(express.static(path.resolve('/opt/render/project/src/backend/', 'public')))
 } else {
@@ -42,7 +48,7 @@ app.use('/posts', postRoutes)
 
 
 app.get('/**', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    res.sendFile(path.join(__dirname, '/public', 'index.html'))
 })
 
 // mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
