@@ -34,8 +34,13 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/posts', postRoutes)
 
-app.get('/', (req, res) => {
-    res.send('Hello to Moments API')
+// app.get('/', (req, res) => {
+//     res.send('Hello to Moments API')
+// })
+
+
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 // mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
