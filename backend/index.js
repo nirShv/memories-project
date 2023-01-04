@@ -23,8 +23,8 @@ console.log('NODE_ENV', process.env.NODE_ENV);
 console.log('process.env.PORT', process.env.PORT);
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.resolve(__dirname, 'public')))
     console.log('__dirname', __dirname);
+    app.use(express.static(path.resolve(__dirname, 'public')))
     // app.use(express.static(path.resolve('/opt/render/project/src/backend/', 'public')))
 } else {
     const corsOptions = {
