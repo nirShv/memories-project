@@ -23,7 +23,8 @@ console.log('NODE_ENV', process.env.NODE_ENV);
 console.log('process.env.PORT', process.env.PORT);
 
 if (process.env.NODE_ENV === 'production') {
-    console.log('__dirname', __dirname);
+    console.log('__dirname', path.resolve(__dirname));
+    console.log('__dirname, public', path.resolve(__dirname, 'public'));
     app.use(express.static(path.resolve(__dirname, 'public')))
     // app.use(express.static(path.resolve('/opt/render/project/src/backend/', 'public')))
 } else {
