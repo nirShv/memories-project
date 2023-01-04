@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "dev": "set NODE_ENV=development && nodemon server.js",
+    "server:prod": "node server.js"
   },
   "keywords": [],
   "author": "",
