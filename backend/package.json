@@ -7,7 +7,8 @@
   "scripts": {
     "start": "nodemon index.js",
     "dev": "set NODE_ENV=development && nodemon server.js",
-    "server:prod": "node server.js"
+    "server:prod": "node server.js",
+    "build": "grunt build"
   },
   "keywords": [],
   "author": "",
