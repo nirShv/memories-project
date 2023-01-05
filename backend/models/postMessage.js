@@ -18,12 +18,13 @@ const postSchema = mongoose.Schema({
 })
 
 
-postSchema.pre('save', function (next) {
-    this.set('extraProp', 'hello', {
-        strict: false
-    });
-    next();
-});
+// postSchema.pre('save', function (next) {
+//     this.set('extraProp', 'hello', {
+//         strict: false
+//     });
+//     next();
+// });
 
 const PostMassage = mongoose.model('PostMessage', postSchema)
+
 export default PostMassage
