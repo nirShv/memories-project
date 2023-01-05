@@ -32,14 +32,13 @@ if (process.env.NODE_ENV === 'production') {
     console.log('path.resolve(__dirname, /public)', path.resolve(__dirname, '/public'));
 
     app.use(express.static(path.resolve(__dirname, '/public')))
-    // app.use(express.static(path.resolve('/opt/render/project/src/backend/', 'public')))
-} else {
-    const corsOptions = {
-        origin: [`http://127.0.0.1:3000`, `http://localhost:3000`],
-        credentials: true
-    }
-    app.use(cors(corsOptions))
-}
+ } //else {
+//     const corsOptions = {
+//         origin: [`http://127.0.0.1:3000`, `http://localhost:3000`],
+//         credentials: true
+//     }
+//     app.use(cors(corsOptions))
+// }
 
 app.use(cors())
 app.use('/posts', postRoutes)
