@@ -32,9 +32,10 @@ if (process.env.NODE_ENV === 'production') {
     console.log('path.resolve(__dirname, /public)', path.resolve(__dirname, '/public'));
 
     app.use(express.static(path.resolve(__dirname, '/public')))
- } //else {
+ }
+//  else {
 //     const corsOptions = {
-//         origin: [`http://127.0.0.1:3000`, `http://localhost:3000`],
+//         origin: ['http://127.0.0.1:5000', 'http://localhost:5000'],
 //         credentials: true
 //     }
 //     app.use(cors(corsOptions))
@@ -42,12 +43,6 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(cors())
 app.use('/posts', postRoutes)
-
-// app.get('/', (req, res) => {
-//     res.send('Hello to Moments API')
-// })
-
-
 app.get('/**', (req, res) => {
     res.sendFile(path.join(__dirname, '/public', 'index.html'))
 })
